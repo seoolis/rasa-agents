@@ -1,0 +1,32 @@
+version: "3.1"
+
+stories:
+
+- story: check ticket status
+  steps:
+    - intent: ask_status
+    - action: utter_ask_ticket_id
+
+- story: provide ticket status
+  steps:
+    - intent: ask_status
+      entities:
+        - ticket_id: "12345"
+    - slot_was_set:
+        - ticket_id: "12345"
+    - action: utter_status
+
+- story: create ticket
+  steps:
+    - intent: create_ticket
+    - action: utter_ticket_created
+
+- story: working hours
+  steps:
+    - intent: ask_hours
+    - action: utter_hours
+
+- story: contact info
+  steps:
+    - intent: ask_contact
+    - action: utter_contact

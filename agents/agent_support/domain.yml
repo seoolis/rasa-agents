@@ -1,0 +1,47 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_hours      # когда работает поддержка
+  - ask_status     # статус заявки
+  - create_ticket  # создать новую заявку
+  - ask_contact    # контакты поддержки
+  - thanks
+
+entities:
+  - ticket_id
+
+slots:
+  ticket_id:
+    type: text
+    influence_conversation: true
+
+responses:
+
+  utter_greet:
+    - text: "Здравствуйте! Отдел поддержки готов помочь."
+
+  utter_goodbye:
+    - text: "Всего доброго. Обращайтесь!"
+
+  utter_hours:
+    - text: "Мы работаем ежедневно с 09:00 до 20:00 по местному времени."
+
+  utter_ask_ticket_id:
+    - text: "Укажите номер вашей заявки, чтобы я мог проверить статус."
+
+  utter_status:
+    - text: "Проверяю статус вашей заявки {ticket_id}... В данный момент она находится в обработке."
+
+  utter_ticket_created:
+    - text: "Готово! Ваша заявка зарегистрирована. Специалист скоро с вами свяжется."
+
+  utter_contact:
+    - text: "Связаться с поддержкой можно по телефону +7 (900) 123-45-67 или по email support@example.com."
+
+  utter_thanks:
+    - text: "Пожалуйста! Если понадобится помощь — пишите."
+
+actions:
+  - action_save_ticket_id

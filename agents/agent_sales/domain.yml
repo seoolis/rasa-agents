@@ -1,0 +1,37 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_product
+  - transfer_request
+
+entities:
+  - product
+  - transfer_to
+
+slots:
+  transfer_to:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: transfer_to
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Здравствуйте! Я агент продаж. Чем могу помочь?"
+  utter_goodbye:
+    - text: "До свидания!"
+  utter_ask_product:
+    - text: "Какой продукт вас интересует?"
+  utter_transfering:
+    - text: "Перенаправляю вас в техподдержку..."
+
+actions:
+  - action_transfer_to
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

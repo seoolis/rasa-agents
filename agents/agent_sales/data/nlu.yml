@@ -1,0 +1,14 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - Привет
+    - Здравствуйте
+- intent: transfer_request
+  examples: |
+    - Мне нужен тех.спец
+    - Переведите меня в поддержку
+    - Хотел бы связаться с поддержкой
+- intent: ask_product
+  examples: |
+    - Расскажите про продукт X
